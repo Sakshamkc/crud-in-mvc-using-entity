@@ -1,0 +1,28 @@
+﻿@model  List<WebApplication45.Models.tblstudent>
+@{
+    ViewBag.Title = "StudentList";
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>StudentId</th>
+        <th>FullName</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+                <td>@item.StudentId</td>
+                <td>@item.Fullname</td>
+                <td>@item.Email</td>
+                <td>@item.Phone</td>
+                <td>
+                    <a href="@Url.Action("Student",new { item.StudentId,item.Fullname,item.Email,item.Phone})" class="btn btn-success">Edit</a>
+                    <a href="@Url.Action("Delete",new { item.StudentId })" class="btn btn-danger">Delete</a>
+                </td>
+         </tr>
+    }
+</table>
+
